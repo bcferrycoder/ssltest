@@ -4,6 +4,4 @@ framework:
   type: java_web
   runtime: java
 
-appdir: target
-
 mem: 1024M
