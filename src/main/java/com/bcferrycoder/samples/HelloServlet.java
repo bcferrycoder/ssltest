@@ -1,5 +1,11 @@
 package com.bcferrycoder.samples;
 
+/**
+ * Created by IntelliJ IDEA.
+ * User: bcferrycoder
+ * Copyright 2013 John Wetherill
+ */
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,6 +18,8 @@ public class HelloServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+    // illustrate the user of javax.net.ssl.trustStore from Stackato-deployed app
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/plain");
 		response.setStatus(200);
@@ -21,7 +29,7 @@ public class HelloServlet extends HttpServlet {
         System.setProperty("javax.net.ssl.trustStore",certPath);
         System.setProperty("javax.net.ssl.trustStorePassword","abcdef");
 
-        String s = HttpsExerciser.doGet("https://github.com");
+        String s = HttpExerciser.doGet("https://github.com");
 
 		PrintWriter writer = response.getWriter();
 		writer.println("Hello from " + System.getenv("VCAP_APP_HOST") + ":" + System.getenv("VCAP_APP_PORT"));
@@ -30,7 +38,7 @@ public class HelloServlet extends HttpServlet {
         writer.println("certPath: "+ certPath);
 		writer.println(s);
 
-        writer.println(ShowEnv.getEnv());
+        writer.println(Util.getEnv());
 
 		writer.close();
 	}

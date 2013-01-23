@@ -1,30 +1,28 @@
 package com.bcferrycoder.samples;
 
-/**
- * @(#)HttpsUrlReader.java *
- *
- * @author Dr. Herong Yang
- * @version %W %E
- */
- 
- 
-/* HttpsUrlReader.java
- * Copyright (c) 2011 by Dr. Herong Yang, herongyang.com
- */
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 
-public class HttpsExerciser {
+/**
+ * Created by IntelliJ IDEA.
+ * User: bcferrycoder
+ * Copyright 2013 John Wetherill
+ */
 
+public class HttpExerciser {
+
+    // hit a url, return response as string
     public static String doGet(String urlString) {
         StringBuilder sb = new StringBuilder();
         try {
             URL url = new URL(urlString);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
             String input;
-            while ((input = in.readLine()) != null)
+            while ((input = in.readLine()) != null) {
                 sb.append(input);
+            }
 
             in.close();
 
