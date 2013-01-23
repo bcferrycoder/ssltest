@@ -29,6 +29,7 @@ public class HelloServlet extends HttpServlet {
         System.setProperty("javax.net.ssl.trustStore",certPath);
         System.setProperty("javax.net.ssl.trustStorePassword","abcdef");
 
+
         String s = HttpExerciser.doGet("https://github.com");
 
 		PrintWriter writer = response.getWriter();
@@ -36,9 +37,11 @@ public class HelloServlet extends HttpServlet {
 		writer.println(" Java Version: " + System.getProperty("java.version")+ " from "+System.getProperty("java.vendor"));
         writer.println("user.dir: "+ System.getProperty("user.dir"));
         writer.println("certPath: "+ certPath);
-		writer.println(s);
-
         writer.println(Util.getEnv());
+
+        writer.println("and now, some html from github:");
+
+		writer.println(s.substring(0,1000));
 
 		writer.close();
 	}
