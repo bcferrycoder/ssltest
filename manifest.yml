@@ -1,0 +1,5 @@
+---
+applications:
+  target:
+    name: hello-java
+    mem: 512M
