@@ -1,7 +1,7 @@
 SIMPLE SSL TEST
 ===============
 
-Shows how to use customer ssl certificates from a Stackato-deployed app.
+Shows how to use custom ssl certificates from a Stackato-deployed app.
 
 
 Build
